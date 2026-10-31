@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>トレカ抽選カレンダー|締切が近い順・毎日更新</title>
+<meta name="description" content="ポケカを中心に、受付中のトレカ抽選・予約・Amazon招待販売を締切が近い順に一覧。全国応募OK・地域で絞り込み。毎日更新。">
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--sub:#6b6b70;--line:#e4e2dc;--accent:#d6452b;--ok:#1f7a4d;--soon:#b7791f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.5}
+header{background:var(--ink);color:#fff;padding:18px 16px 14px}
+header h1{margin:0;font-size:20px;letter-spacing:.02em}
+header p{margin:4px 0 0;font-size:12px;color:#c9c9ce}
+main{max-width:760px;margin:0 auto;padding:12px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.box h2{font-size:15px;margin:0 0 8px}
+.pr{font-size:10px;border:1px solid var(--sub);color:var(--sub);border-radius:4px;padding:0 4px;margin-left:6px;vertical-align:middle}
+.amz a{display:block;text-decoration:none;color:inherit;padding:8px 0;border-top:1px dashed var(--line)}
+.amz a:first-of-type{border-top:0}
+.amz b{color:var(--accent)}
+.amz small{display:block;color:var(--sub);font-size:12px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters select,.filters label{font-size:13px}
+select{max-width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
+.count{font-size:12px;color:var(--sub);margin:4px 2px 8px}
+h3{font-size:14px;margin:18px 2px 8px;color:var(--sub)}
+.item{display:grid;grid-template-columns:76px 1fr;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;text-decoration:none;color:inherit}
+.item:hover{border-color:var(--ink)}
+.when{text-align:center;border-right:1px solid var(--line);padding-right:8px}
+.when .d{font-weight:700;font-size:15px}
+.when .t{font-size:12px;color:var(--sub)}
+.left{display:inline-block;margin-top:4px;font-size:11px;font-weight:700;color:#fff;background:var(--sub);border-radius:6px;padding:1px 6px}
+.left.hot{background:var(--accent)}
+.left.warm{background:var(--soon)}
+.prod{font-weight:700;font-size:15px}
+.store{font-size:13px}
+.tags{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:11px;border-radius:4px;padding:1px 6px;background:#efeee9;color:#444}
+.tag.nat{background:#e3f2ea;color:var(--ok);font-weight:700}
+.tag.warn{background:#fdf0e6;color:#9a4a12}
+.empty{color:var(--sub);font-size:13px;padding:8px}
+footer{max-width:760px;margin:20px auto 40px;padding:0 14px;font-size:11px;color:var(--sub)}
+footer a{color:var(--sub)}
+</style>
+</head>
+<body>
+<header>
+  <h1>トレカ抽選カレンダー</h1>
+  <p>締切が近い順・毎日更新 <span id="updated"></span></p>
+</header>
+<main>
+  <section class="box amz" id="amazon">
+    <h2>Amazonの招待販売・定価ページ<span class="pr">PR</span></h2>
+  </section>
+
+  <section class="box">
+    <div class="filters">
+      <label class="chip"><input type="checkbox" id="fNat"> 全国OKだけ</label>
+      <select id="fEntry"><option value="">応募方法:すべて</option><option>オンライン</option><option>SNS</option><option>店頭</option></select>
+      <select id="fArea"><option value="">地域:すべて</option></select>
+      <select id="fProd"><option value="">商品:すべて</option></select>
+    </div>
+  </section>
+
+  <div class="count" id="count"></div>
+  <div id="open"></div>
+  <h3 id="upHead">これから受付開始</h3>
+  <div id="upcoming"></div>
+
+  <section class="box" style="margin-top:18px">
+    <h2>BOXが届く前に<span class="pr">PR</span></h2>
+    <div class="amz">
+      <a href="https://www.amazon.co.jp/dp/B0BS226SYW?tag=bb0404-22" target="_blank" rel="sponsored noopener">RIMINA BOXローダー(拡張パックBOX用)<small>未開封BOXを傷・へこみから守る。購入前に対応サイズを商品ページで確認してください</small></a>
+      <a href="https://www.amazon.co.jp/dp/B0CJ32N5YD?tag=bb0404-22" target="_blank" rel="sponsored noopener">アンサー トレカプロテクト ヨコ入れジャスト<small>レギュラーサイズ(ポケカ・ワンピ)用。運営者も使用中</small></a>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>※抽選の条件・締切は変わることがあります。応募前に必ず各店の告知ページを確認してください。「未確認」は公式ページでまだ確認できていない情報です。</p>
+  <p>当サイトはAmazonアソシエイト・プログラムに参加しています。Amazonのリンクから購入されると、運営者に紹介料が入ることがあります。</p>
+  <p>運営:<a href="https://x.com/BB04cc" target="_blank" rel="noopener">@BB04cc</a>(Xで抽選速報を配信中)</p>
+</footer>
+<script>
+const WD="日月火水木金土";
+const fmt=d=>`${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})`;
+const hm=d=>`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isNat=i=>i.receive==="配送"||String(i.area).startsWith("全国");
+function left(ms){
+  const h=ms/36e5;
+  if(h<1)return["あと"+Math.max(1,Math.round(ms/6e4))+"分","hot"];
+  if(h<24)return["あと"+Math.floor(h)+"時間","hot"];
+  const d=Math.floor(h/24);
+  return["あと"+d+"日",d<3?"warm":""];
+}
+function card(i,now,up){
+  const ref=up?new Date(i.start):(i.end?new Date(i.end):null);
+  let when='<div class="d">未定</div>';
+  if(ref){
+    const [txt,cls]=up?["受付前",""]:left(ref-now);
+    when=`<div class="d">${fmt(ref)}</div><div class="t">${up?"開始 ":""}${hm(ref)}</div><span class="left ${cls}">${txt}</span>`;
+  }
+  const url=i.url||("https://x.com/search?q="+encodeURIComponent(i.store+" "+i.product.replace(/\(.*\)/,"")+" 抽選"));
+  const tags=[
+    isNat(i)?'<span class="tag nat">全国OK</span>':`<span class="tag">${esc(i.area)}</span>`,
+    `<span class="tag">応募:${esc(i.entry)}</span>`,
+    `<span class="tag">受取:${esc(i.receive)}</span>`,
+    i.checked?"":'<span class="tag warn">未確認</span>',
+    i.url?"":'<span class="tag warn">告知をXで検索</span>',
+    up&&i.end?`<span class="tag">締切 ${fmt(new Date(i.end))} ${hm(new Date(i.end))}</span>`:"",
+    i.note?`<span class="tag">${esc(i.note)}</span>`:""
+  ].join("");
+  return `<a class="item" href="${esc(url)}" target="_blank" rel="noopener"><div class="when">${when}</div><div><div class="prod">${esc(i.product)}</div><div class="store">${esc(i.store)}</div><div class="tags">${tags}</div></div></a>`;
+}
+fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
+  const u=new Date(data.updated);
+  document.getElementById("updated").textContent=`/ 最終更新 ${fmt(u)} ${hm(u)}`;
+  const amz=document.getElementById("amazon");
+  data.amazon.forEach(a=>amz.insertAdjacentHTML("beforeend",
+    `<a href="${esc(a.url)}" target="_blank" rel="sponsored noopener"><b>${esc(a.type)}</b> ${esc(a.title)} ${esc(a.product)}<small>${esc(a.note)}</small></a>`));
+  const fill=(id,vals)=>{const s=document.getElementById(id);[...new Set(vals)].sort().forEach(v=>s.insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`))};
+  fill("fArea",data.items.map(i=>i.area));
+  fill("fProd",data.items.map(i=>i.product.replace(/\(.*\)/,"")));
+  const render=()=>{
+    const now=new Date();
+    const nat=fNat.checked,en=fEntry.value,ar=fArea.value,pr=fProd.value;
+    const list=data.items.filter(i=>(!i.end||new Date(i.end)>now)
+      &&(!nat||isNat(i))&&(!en||i.entry===en)&&(!ar||i.area===ar)&&(!pr||i.product.startsWith(pr)));
+    const isUp=i=>i.start&&new Date(i.start)>now;
+    const open=list.filter(i=>!isUp(i)).sort((a,b)=>(a.end?new Date(a.end):9e15)-(b.end?new Date(b.end):9e15));
+    const up=list.filter(isUp).sort((a,b)=>new Date(a.start)-new Date(b.start));
+    document.getElementById("open").innerHTML=open.map(i=>card(i,now,false)).join("")||'<div class="empty">条件に合う受付中の抽選はありません</div>';
+    document.getElementById("upcoming").innerHTML=up.map(i=>card(i,now,true)).join("");
+    document.getElementById("upHead").style.display=up.length?"":"none";
+    document.getElementById("count").textContent=`受付中 ${open.length}件・これから ${up.length}件(締切を過ぎたものは自動で消えます)`;
+  };
+  ["fNat","fEntry","fArea","fProd"].forEach(id=>document.getElementById(id).addEventListener("change",render));
+  render();setInterval(render,60000);
+});
+</script>
+</body>
+</html>
