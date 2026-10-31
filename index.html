@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>トレカ抽選カレンダー|締切が近い順・毎日更新</title>
-<meta name="description" content="ポケカを中心に、受付中のトレカ抽選・予約・Amazon招待販売を締切が近い順に一覧。全国応募OK・地域で絞り込み。毎日更新。">
+<meta name="description" content="ポケカ・ワンピースカードの受付中の抽選・予約・Amazon招待販売を締切が近い順に一覧。全国応募OK・地域で絞り込み。毎日更新。">
 <style>
 :root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--sub:#6b6b70;--line:#e4e2dc;--accent:#d6452b;--ok:#1f7a4d;--soon:#b7791f}
 *{box-sizing:border-box}
@@ -51,6 +51,15 @@ h3{font-size:14px;margin:18px 2px 8px;color:var(--sub)}
 .tag{font-size:11px;border-radius:4px;padding:1px 6px;background:#efeee9;color:#444}
 .tag.nat{background:#e3f2ea;color:var(--ok);font-weight:700}
 .tag.warn{background:#fdf0e6;color:#9a4a12}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tabs button{flex:1;padding:9px 0;border:1px solid var(--line);border-radius:10px;background:#fff;font-weight:800;font-size:14px;color:var(--sub);cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.off{background:linear-gradient(135deg,#fff8e1,#fff);border:1px solid #f0d58a;border-radius:12px;padding:10px 12px 4px;margin-bottom:12px}
+.off h2{font-size:14px;margin:0 0 8px;display:flex;align-items:center;gap:6px}
+.off .item{border-color:#f0d58a}
+.tt{font-size:11px;font-weight:800;border-radius:4px;padding:1px 6px;color:#fff}
+.tt.p{background:#e3a300}.tt.o{background:#c8322f}
+.tag.offi{background:#1d1d1f;color:#ffd76a;font-weight:800}
 .empty{color:var(--sub);font-size:13px;padding:8px}
 footer{max-width:760px;margin:20px auto 40px;padding:0 14px;font-size:11px;color:var(--sub)}
 footer a{color:var(--sub)}
@@ -72,6 +81,8 @@ footer a{color:var(--sub)}
     <h2>Amazonの招待販売・定価ページ<span class="pr">PR</span></h2>
   </section>
 
+  <div class="tabs" id="tabs"><button data-t="" class="on">すべて</button><button data-t="ポケカ">ポケカ</button><button data-t="ワンピ">ワンピース</button></div>
+  <section class="off" id="offBox"><h2>🏆 公式ストアの抽選・予約</h2><div id="official"></div></section>
   <section class="box">
     <div class="filters">
       <label class="chip"><input type="checkbox" id="fNat"> 全国OKだけ</label>
@@ -105,6 +116,7 @@ const fmt=d=>`${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})`;
 const hm=d=>`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const isNat=i=>i.receive==="配送"||String(i.area).startsWith("全国");
+let TAB="";
 function left(ms){
   const h=ms/36e5;
   if(h<1)return["あと"+Math.max(1,Math.round(ms/6e4))+"分","hot"];
@@ -114,13 +126,14 @@ function left(ms){
 }
 function card(i,now,up){
   const ref=up?new Date(i.start):(i.end?new Date(i.end):null);
-  let when='<div class="d">未定</div>';
+  let when='<div class="d">受付中</div><div class="t">締切未定</div>';
   if(ref){
     const [txt,cls]=up?["受付前",""]:left(ref-now);
     when=`<div class="d">${fmt(ref)}</div><div class="t">${up?"開始 ":""}${hm(ref)}</div><span class="left ${cls}">${txt}</span>`;
   }
   const url=i.url||("https://x.com/search?q="+encodeURIComponent(i.store+" "+i.product.replace(/\(.*\)/,"")+" 抽選"));
   const tags=[
+    i.official?'<span class="tag offi">公式</span>':"",
     isNat(i)?'<span class="tag nat">全国OK</span>':`<span class="tag">${esc(i.area)}</span>`,
     `<span class="tag">応募:${esc(i.entry)}</span>`,
     `<span class="tag">受取:${esc(i.receive)}</span>`,
@@ -129,7 +142,7 @@ function card(i,now,up){
     up&&i.end?`<span class="tag">締切 ${fmt(new Date(i.end))} ${hm(new Date(i.end))}</span>`:"",
     i.note?`<span class="tag">${esc(i.note)}</span>`:""
   ].join("");
-  return `<a class="item" href="${esc(url)}" target="_blank" rel="noopener"><div class="when">${when}</div><div><div class="prod">${esc(i.product)}</div><div class="store">${esc(i.store)}</div><div class="tags">${tags}</div></div></a>`;
+  return `<a class="item" href="${esc(url)}" target="_blank" rel="noopener"><div class="when">${when}</div><div><div class="prod"><span class="tt ${i.title==="ワンピ"?"o":"p"}">${i.title==="ワンピ"?"ワンピ":"ポケカ"}</span> ${esc(i.product)}</div><div class="store">${esc(i.store)}</div><div class="tags">${tags}</div></div></a>`;
 }
 fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
   const u=new Date(data.updated);
@@ -141,11 +154,16 @@ fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
     `<a href="${esc(a.url)}" target="_blank" rel="sponsored noopener"><b>${esc(a.type)}</b> ${esc(a.title)} ${esc(a.product)}<small>${esc(a.note)}</small></a>`));
   const fill=(id,vals)=>{const s=document.getElementById(id);[...new Set(vals)].sort().forEach(v=>s.insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`))};
   fill("fArea",data.items.map(i=>i.area));
-  fill("fProd",data.items.map(i=>i.product.replace(/\(.*\)/,"")));
+  const fillProd=()=>{const s=document.getElementById("fProd");s.innerHTML='<option value="">商品:すべて</option>';fill("fProd",data.items.filter(i=>!TAB||i.title===TAB).map(i=>i.product.replace(/\(.*\)/,"")));};
+  fillProd();
   const render=()=>{
     const now=new Date();
     const nat=fNat.checked,en=fEntry.value,ar=fArea.value,pr=fProd.value;
-    const list=data.items.filter(i=>(!i.end||new Date(i.end)>now)
+    const alive=data.items.filter(i=>(!i.end||new Date(i.end)>now)&&(!TAB||i.title===TAB));
+    const offs=alive.filter(i=>i.official).sort((a,b)=>(a.end?new Date(a.end):9e15)-(b.end?new Date(b.end):9e15));
+    document.getElementById("official").innerHTML=offs.map(i=>card(i,now,i.start&&new Date(i.start)>now)).join("");
+    document.getElementById("offBox").style.display=offs.length?"":"none";
+    const list=alive.filter(i=>!i.official&&(!i.end||new Date(i.end)>now)
       &&(!nat||isNat(i))&&(!en||i.entry===en)&&(!ar||i.area===ar)&&(!pr||i.product.startsWith(pr)));
     const isUp=i=>i.start&&new Date(i.start)>now;
     const open=list.filter(i=>!isUp(i)).sort((a,b)=>(a.end?new Date(a.end):9e15)-(b.end?new Date(b.end):9e15));
@@ -155,6 +173,7 @@ fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
     document.getElementById("upHead").style.display=up.length?"":"none";
     document.getElementById("count").textContent=`受付中 ${open.length}件・これから ${up.length}件(締切を過ぎたものは自動で消えます)`;
   };
+  document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>{TAB=b.dataset.t;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));fillProd();render();}));
   ["fNat","fEntry","fArea","fProd"].forEach(id=>document.getElementById(id).addEventListener("change",render));
   render();setInterval(render,60000);
 });
