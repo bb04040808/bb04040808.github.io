@@ -63,6 +63,7 @@ h3{font-size:14px;margin:18px 2px 8px;color:var(--sub)}
 .tt{font-size:11px;font-weight:800;border-radius:4px;padding:1px 6px;color:#fff}
 .tt.p{background:#e3a300}.tt.o{background:#c8322f}
 .tag.offi{background:#1d1d1f;color:#ffd76a;font-weight:800}
+.sublead{font-size:12px;color:var(--sub);margin:-4px 0 4px}
 .empty{color:var(--sub);font-size:13px;padding:8px}
 footer{max-width:760px;margin:20px auto 40px;padding:0 14px;font-size:11px;color:var(--sub)}
 footer a{color:var(--sub)}
@@ -100,12 +101,10 @@ footer a{color:var(--sub)}
   <h3 id="upHead">これから受付開始</h3>
   <div id="upcoming"></div>
 
-  <section class="box" style="margin-top:18px">
-    <h2>BOXが届く前に<span class="pr">PR</span></h2>
-    <div class="amz">
-      <a href="https://www.amazon.co.jp/dp/B0BS226SYW?tag=bb0404-22" target="_blank" rel="sponsored noopener">RIMINA BOXローダー(拡張パックBOX用)<small>未開封BOXを傷・へこみから守る。購入前に対応サイズを商品ページで確認してください</small></a>
-      <a href="https://www.amazon.co.jp/dp/B0CJ32N5YD?tag=bb0404-22" target="_blank" rel="sponsored noopener">アンサー トレカプロテクト ヨコ入れジャスト<small>レギュラーサイズ(ポケカ・ワンピ)用。運営者も使用中</small></a>
-    </div>
+  <section class="box" style="margin-top:18px" id="supBox">
+    <h2><span id="supTitle"></span><span class="pr">PR</span></h2>
+    <div class="sublead" id="supLead"></div>
+    <div class="amz" id="supList"></div>
   </section>
 </main>
 <footer>
@@ -154,6 +153,10 @@ fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
   const amz=document.getElementById("amazon");
   data.amazon.forEach(a=>amz.insertAdjacentHTML("beforeend",
     `<a href="${esc(a.url)}" target="_blank" rel="sponsored noopener"><b>${esc(a.type)}</b> ${esc(a.title)} ${esc(a.product)}<small>${esc(a.note)}</small></a>`));
+  const sp=data.supplies;
+  if(sp&&sp.items&&sp.items.length){document.getElementById("supTitle").textContent=sp.title;document.getElementById("supLead").textContent=sp.lead||"";
+    document.getElementById("supList").innerHTML=sp.items.map(x=>`<a href="https://www.amazon.co.jp/dp/${esc(x.asin)}?tag=bb0404-22" target="_blank" rel="sponsored noopener">${esc(x.name)}<small>${esc(x.note)}</small></a>`).join("");}
+  else document.getElementById("supBox").style.display="none";
   const fill=(id,vals)=>{const s=document.getElementById(id);[...new Set(vals)].sort().forEach(v=>s.insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`))};
   fill("fArea",data.items.map(i=>i.area));
   const fillProd=()=>{const s=document.getElementById("fProd");s.innerHTML='<option value="">商品:すべて</option>';fill("fProd",data.items.filter(i=>!TAB||i.title===TAB).map(i=>i.product.replace(/\(.*\)/,"")));};
