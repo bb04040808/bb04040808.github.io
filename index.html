@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>トレカ抽選カレンダー|締切が近い順・毎日更新</title>
+<title>トレカ抽選まとめ|ポケカ・ワンピの抽選を締切が近い順に・毎日更新</title>
 <meta name="description" content="ポケカ・ワンピースカードの受付中の抽選・予約・Amazon招待販売を締切が近い順に一覧。全国応募OK・地域で絞り込み。毎日更新。">
 <style>
 :root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--sub:#6b6b70;--line:#e4e2dc;--accent:#d6452b;--ok:#1f7a4d;--soon:#b7791f}
@@ -69,7 +69,7 @@ footer a{color:var(--sub)}
 <header>
   <div class="hwrap">
     <div class="htext">
-      <h1><span>TCG LOTTERY CALENDAR</span>トレカ抽選<br>カレンダー</h1>
+      <h1><span>TCG LOTTERY MATOME</span>トレカ<br>抽選まとめ</h1>
       <p id="updated">締切が近い順・毎日更新</p>
     </div>
     <div class="bubble" id="bubble">応募もれ、ゼロに！</div>
@@ -106,7 +106,7 @@ footer a{color:var(--sub)}
   </section>
 </main>
 <footer>
-  <p>※抽選の条件・締切は変わることがあります。応募前に必ず各店の告知ページを確認してください。「未確認」は公式ページでまだ確認できていない情報です。</p>
+  <p>※抽選の条件・締切は変わることがあります。応募前に必ず各店の告知ページを確認してください。</p>
   <p>当サイトはAmazonアソシエイト・プログラムに参加しています。Amazonのリンクから購入されると、運営者に紹介料が入ることがあります。</p>
   <p>運営:<a href="https://x.com/BB04cc" target="_blank" rel="noopener">@BB04cc</a>(Xで抽選速報を配信中)</p>
 </footer>
@@ -137,7 +137,6 @@ function card(i,now,up){
     isNat(i)?'<span class="tag nat">全国OK</span>':`<span class="tag">${esc(i.area)}</span>`,
     `<span class="tag">応募:${esc(i.entry)}</span>`,
     `<span class="tag">受取:${esc(i.receive)}</span>`,
-    i.checked?"":'<span class="tag warn">未確認</span>',
     i.url?"":'<span class="tag warn">告知をXで検索</span>',
     up&&i.end?`<span class="tag">締切 ${fmt(new Date(i.end))} ${hm(new Date(i.end))}</span>`:"",
     i.note?`<span class="tag">${esc(i.note)}</span>`:""
