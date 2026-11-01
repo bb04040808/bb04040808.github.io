@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T10:12:00+09:00",
+ "updated": "2026-11-01T21:15:00+09:00",
  "amazon": [
   {
    "title": "ポケカ",
@@ -7,6 +7,13 @@
    "type": "招待リクエスト受付中",
    "url": "https://www.amazon.co.jp/dp/B0H4PQ6LR5?tag=bb0404-22",
    "note": "Amazon.co.jp販売の定価ページ。招待メール後48時間以内に購入"
+  },
+  {
+   "title": "ワンピ",
+   "product": "神の支配 OP-18 1BOX(5,782円)",
+   "type": "招待リクエスト受付中",
+   "url": "https://www.amazon.co.jp/dp/B0HFVPJF4Q?tag=bb0404-22",
+   "note": "Amazon.co.jp販売の定価ページ(11/1確認)"
   }
  ],
  "items": [
@@ -539,7 +546,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-02T23:59:00+09:00",
-   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=TpRryqt0k2",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=9pJ6rKzR7A",
    "checked": false,
    "official": false
   },
@@ -552,16 +559,16 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-02T23:59:00+09:00",
-   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=9pJ6rKzR7A",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=TpRryqt0k2",
    "checked": false,
    "official": false
   },
   {
    "title": "ポケカ",
-   "product": "スペシャルデッキセットMEGA",
+   "product": "ハドウシーカー",
    "store": "カードボックス日本橋店",
    "area": "大阪",
-   "entry": "オンライン",
+   "entry": "店頭",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-02T23:59:00+09:00",
@@ -571,10 +578,10 @@
   },
   {
    "title": "ポケカ",
-   "product": "30周年パック",
+   "product": "スペシャルデッキセットMEGA",
    "store": "カードボックス日本橋店",
    "area": "大阪",
-   "entry": "SNS",
+   "entry": "オンライン",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-02T23:59:00+09:00",
@@ -591,7 +598,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T21:00:00+09:00",
-   "url": "",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=2ADwfjBmKi",
    "checked": false,
    "official": false
   },
@@ -604,7 +611,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T22:00:00+09:00",
-   "url": "",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=4CDWGwTgzE",
    "checked": false,
    "official": false
   },
@@ -617,7 +624,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T22:00:00+09:00",
-   "url": "",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=PE7ioIcRuk",
    "checked": false,
    "official": false
   },
@@ -630,7 +637,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T23:59:00+09:00",
-   "url": "",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=qJR1Nk72W8",
    "checked": false,
    "official": false
   },
@@ -639,11 +646,11 @@
    "product": "ハドウシーカー",
    "store": "カードボックス横浜本店",
    "area": "神奈川",
-   "entry": "店頭",
+   "entry": "オンライン",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T23:59:00+09:00",
-   "url": "",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=KkWB9fNji1",
    "checked": false,
    "official": false
   },
@@ -656,7 +663,7 @@
    "receive": "配送",
    "start": null,
    "end": "2026-11-04T13:59:00+09:00",
-   "url": "https://www.amiami.jp/",
+   "url": "https://form.amiami.jp/draw20261030",
    "checked": true,
    "official": false
   },
@@ -669,7 +676,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-08T23:59:00+09:00",
-   "url": "",
+   "url": "https://x.com/T_Nakatsu_TCG/status/2115770303146348823",
    "checked": false,
    "official": false
   },
@@ -682,9 +689,9 @@
    "receive": "配送",
    "start": "2026-11-06T16:00:00+09:00",
    "end": "2026-11-10T16:59:00+09:00",
-   "url": "https://www.pokemoncenter-online.com/",
+   "url": "https://www.pokemoncenter-online.com/news/?id=20261030",
    "checked": false,
-   "note": "当選発表11/17 15:00・購入期限11/24・12/1〜12/18発送予定",
+   "note": "当選発表11/17 15:00・購入期限11/24 16:59・12/1〜12/18発送予定",
    "official": true
   },
   {
@@ -709,7 +716,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-24T17:00:00+09:00",
-   "url": "",
+   "url": "https://x.com/bookoffakbT/status/2115754434823344511",
    "checked": false,
    "official": false
   },
@@ -722,7 +729,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-24T23:59:00+09:00",
-   "url": "",
+   "url": "https://x.com/BOOKOFF_ueno/status/2113556043212939558",
    "checked": false,
    "official": false
   },
@@ -735,7 +742,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-25T23:59:00+09:00",
-   "url": "",
+   "url": "https://x.com/cherumo2010/status/2114644506692002130",
    "checked": false,
    "official": false
   },
@@ -748,7 +755,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-11-26T23:59:00+09:00",
-   "url": "",
+   "url": "https://x.com/unlimited15839/status/2114612601527140581",
    "checked": false,
    "official": false
   },
@@ -761,7 +768,7 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-12-11T23:59:00+09:00",
-   "url": "",
+   "url": "https://x.com/bazuka_nagoya/status/2113583740110909888",
    "checked": false,
    "official": false
   },
@@ -774,23 +781,9 @@
    "receive": "店頭",
    "start": null,
    "end": "2026-12-11T23:59:00+09:00",
-   "url": "",
+   "url": "https://x.com/bazuka_toyota/status/2113582334935208321",
    "checked": false,
    "official": false
-  },
-  {
-   "title": "ワンピ",
-   "product": "HEROINES PRECIOUS BOX",
-   "store": "プレミアムバンダイ(魂ウェブ商店)",
-   "area": "全国",
-   "entry": "オンライン",
-   "receive": "配送",
-   "start": null,
-   "end": null,
-   "url": "https://p-bandai.jp/item/item-1000260455/",
-   "checked": false,
-   "official": true,
-   "note": "予約受付中(予定数まで・先着)"
   },
   {
    "title": "ポケカ",
@@ -801,7 +794,7 @@
    "receive": "配送",
    "start": null,
    "end": "2026-11-04T13:59:00+09:00",
-   "url": "https://www.amiami.jp/",
+   "url": "https://form.amiami.jp/draw20261030",
    "checked": false,
    "official": false,
    "note": "ハドウシーカーと同時応募可"
@@ -821,14 +814,14 @@
   },
   {
    "title": "ポケカ",
-   "product": "30th CELEBRATION カードセット",
+   "product": "30周年御三家カードセット",
    "store": "TCGショップ193 各店",
    "area": "愛知ほか",
    "entry": "オンライン",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-04T23:59:00+09:00",
-   "url": "",
+   "url": "https://docs.google.com/forms/d/e/1FAIpQLSckLz6kpt0cOvnKUuW2zK4j8QaRgH-8WE7uGup8a5Fra6OCBQ/viewform",
    "checked": false,
    "official": false
   },
@@ -1549,7 +1542,7 @@
   },
   {
    "title": "ワンピ",
-   "product": "神の支配",
+   "product": "世界最強の戦士",
    "store": "トレカエース植田店",
    "area": "愛知",
    "entry": "オンライン",
@@ -1575,10 +1568,10 @@
   },
   {
    "title": "ワンピ",
-   "product": "ヒロインズエディション vol.2",
+   "product": "神の支配",
    "store": "カードボックス日本橋店",
    "area": "大阪",
-   "entry": "オンライン",
+   "entry": "店頭",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-02T23:59:00+09:00",
@@ -1588,10 +1581,10 @@
   },
   {
    "title": "ワンピ",
-   "product": "神の支配",
+   "product": "ヒロインズエディション vol.2",
    "store": "福田屋百貨店(宇都宮店・インターパーク店)",
    "area": "栃木",
-   "entry": "店頭",
+   "entry": "SNS",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T15:00:00+09:00",
@@ -1627,10 +1620,10 @@
   },
   {
    "title": "ワンピ",
-   "product": "ヒロインズエディション vol.2",
+   "product": "神の支配",
    "store": "カードボックス京都店",
    "area": "京都",
-   "entry": "SNS",
+   "entry": "オンライン",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-03T22:00:00+09:00",
@@ -1653,7 +1646,7 @@
   },
   {
    "title": "ワンピ",
-   "product": "HEROINES PRECIOUS BOX",
+   "product": "ヒロインズエディション vol.2",
    "store": "HMVトレカショップ(全国18店舗)",
    "area": "各地",
    "entry": "オンライン",
@@ -1679,7 +1672,7 @@
   },
   {
    "title": "ワンピ",
-   "product": "世界最強の戦士",
+   "product": "神の支配",
    "store": "カードボックスオーサカ店",
    "area": "大阪",
    "entry": "オンライン",
@@ -1705,7 +1698,7 @@
   },
   {
    "title": "ワンピ",
-   "product": "HEROINES PRECIOUS BOX",
+   "product": "世界最強の戦士",
    "store": "TierOne 渋谷店",
    "area": "東京",
    "entry": "オンライン",
@@ -1721,7 +1714,7 @@
    "product": "HEROINES PRECIOUS BOX",
    "store": "TCバトロコ盛岡大通",
    "area": "岩手",
-   "entry": "SNS",
+   "entry": "オンライン",
    "receive": "店頭",
    "start": null,
    "end": "2026-11-04T23:59:00+09:00",
@@ -1744,7 +1737,7 @@
   },
   {
    "title": "ワンピ",
-   "product": "ヒロインズエディション vol.2",
+   "product": "神の支配",
    "store": "カードボックス刈谷店",
    "area": "愛知",
    "entry": "SNS",
@@ -2420,7 +2413,7 @@
   },
   {
    "title": "ワンピ",
-   "product": "HEROINES PRECIOUS BOX",
+   "product": "ヒロインズエディション vol.2",
    "store": "プレミアムバンダイ",
    "area": "全国",
    "entry": "オンライン",
@@ -2430,7 +2423,7 @@
    "url": "https://p-bandai.jp/item/item-1000260602/",
    "checked": false,
    "official": true,
-   "note": "抽選販売"
+   "note": "要プレバン会員"
   },
   {
    "title": "ワンピ",
@@ -2767,6 +2760,149 @@
    "start": "2026-11-07T00:00:00+09:00",
    "end": null,
    "url": "https://x.com/YANASETSUTAYA/status/2115974466031530401",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "ハドウシーカー",
+   "store": "イオン九州(iAEONアプリ)",
+   "area": "九州",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": null,
+   "end": "2026-11-08T23:59:00+09:00",
+   "url": "https://www.aeon-kyushu.info/customer/information/archives/145",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "キデイランド アミュプラザくまもと店",
+   "area": "熊本",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": null,
+   "end": "2026-11-04T23:59:00+09:00",
+   "url": "https://livepocket.jp/e/w3o7c",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "キデイランド各店(5店舗)",
+   "area": "各地",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": "2026-11-02T10:00:00+09:00",
+   "end": "2026-11-04T23:59:00+09:00",
+   "url": "https://livepocket.jp/p/hpmzs",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "ゲオ(Web抽選・店舗受取)",
+   "area": "全国(店舗受取)",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": "2026-11-02T11:00:00+09:00",
+   "end": "2026-11-05T17:59:00+09:00",
+   "url": "https://geo-online.co.jp/news/787",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ワンピ",
+   "product": "神の支配",
+   "store": "ゲオ(Web抽選・店舗受取)",
+   "area": "全国(店舗受取)",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": "2026-11-02T11:00:00+09:00",
+   "end": "2026-11-05T17:59:00+09:00",
+   "url": "https://geo-online.co.jp/news/788",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "コジマ(アプリ抽選)",
+   "area": "全国(店舗受取)",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": null,
+   "end": "2026-11-06T23:59:00+09:00",
+   "url": "https://www.kojima.net/shop/app/kojima_appli.html",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "カードボックス ブックスジュピター店",
+   "area": "不明",
+   "entry": "店頭",
+   "receive": "店頭",
+   "start": null,
+   "end": "2026-11-05T23:59:00+09:00",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=9u8SEDnkRy",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "北国書林辰口店",
+   "area": "石川",
+   "entry": "オンライン",
+   "receive": "店頭",
+   "start": null,
+   "end": "2026-11-07T00:00:00+09:00",
+   "url": "https://shoplottery.e-starbox.com/lottery/entry?code=7JPR3bBMvC",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "スペシャルデッキセットMEGA",
+   "store": "TSUTAYA中津店トレカコーナー",
+   "area": "大分",
+   "entry": "店頭",
+   "receive": "店頭",
+   "start": null,
+   "end": "2026-11-08T23:59:00+09:00",
+   "url": "https://x.com/T_Nakatsu_TCG/status/2115770303146348823",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "30周年パック",
+   "store": "ホビビ通販部",
+   "area": "全国",
+   "entry": "SNS",
+   "receive": "配送",
+   "start": null,
+   "end": "2026-11-04T23:59:00+09:00",
+   "url": "https://docs.google.com/forms/d/e/1FAIpQLSc_P-WPorh2i-pf-OZifewneYgmkEC39qI4_RrVBe49x0jrKw/viewform",
+   "checked": false,
+   "official": false
+  },
+  {
+   "title": "ポケカ",
+   "product": "30th CELEBRATION カードセット(全9種)",
+   "store": "トレカプラザ55通販店",
+   "area": "全国",
+   "entry": "オンライン",
+   "receive": "配送",
+   "start": null,
+   "end": "2026-11-06T23:59:00+09:00",
+   "url": "https://docs.google.com/forms/d/e/1FAIpQLScDZdtbNfiI9DRsn2S5TJxR4Hez0Xhw8AHVAzd8uaGhrI-XeQ/viewform",
    "checked": false,
    "official": false
   }

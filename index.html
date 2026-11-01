@@ -37,6 +37,7 @@ main{max-width:760px;margin:0 auto;padding:12px}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .filters select,.filters label{font-size:13px}
 select{max-width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.filters input[type=search]{flex:1 1 100%;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
 .chip{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
 .count{font-size:12px;color:var(--sub);margin:4px 2px 8px}
 h3{font-size:14px;margin:18px 2px 8px;color:var(--sub)}
@@ -93,6 +94,7 @@ footer a{color:var(--sub)}
       <select id="fEntry"><option value="">応募方法:すべて</option><option>オンライン</option><option>SNS</option><option>店頭</option></select>
       <select id="fArea"><option value="">地域:すべて</option></select>
       <select id="fProd"><option value="">商品:すべて</option></select>
+      <input type="search" id="fQ" placeholder="店名・地域で検索(例:ゲオ、大阪)" aria-label="店名・地域で検索">
     </div>
   </section>
 
@@ -114,7 +116,7 @@ footer a{color:var(--sub)}
 </footer>
 <script>
 const WD="日月火水木金土";
-const fmt=d=>`${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})`;
+const fmt=d=>{const n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),k=Math.round((new Date(d.getFullYear(),d.getMonth(),d.getDate())-t)/864e5);return k===0?"今日":k===1?"明日":`${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})`;};
 const hm=d=>`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const isNat=i=>i.receive==="配送"||String(i.area).startsWith("全国");
@@ -163,13 +165,14 @@ fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
   fillProd();
   const render=()=>{
     const now=new Date();
-    const nat=fNat.checked,en=fEntry.value,ar=fArea.value,pr=fProd.value;
+    const nat=fNat.checked,en=fEntry.value,ar=fArea.value,pr=fProd.value,q=fQ.value.trim().toLowerCase();
+    const hitQ=i=>!q||[i.store,i.area,i.product,i.entry,i.receive].join(" ").toLowerCase().includes(q);
     const alive=data.items.filter(i=>(!i.end||new Date(i.end)>now)&&(!TAB||i.title===TAB));
     const offs=alive.filter(i=>i.official).sort((a,b)=>(a.end?new Date(a.end):9e15)-(b.end?new Date(b.end):9e15));
     document.getElementById("official").innerHTML=offs.map(i=>card(i,now,i.start&&new Date(i.start)>now)).join("");
     document.getElementById("offBox").style.display=offs.length?"":"none";
     const list=alive.filter(i=>!i.official&&(!i.end||new Date(i.end)>now)
-      &&(!nat||isNat(i))&&(!en||i.entry===en)&&(!ar||i.area===ar)&&(!pr||i.product.startsWith(pr)));
+      &&(!nat||isNat(i))&&(!en||i.entry===en)&&(!ar||i.area===ar)&&(!pr||i.product.startsWith(pr))&&hitQ(i));
     const isUp=i=>i.start&&new Date(i.start)>now;
     const open=list.filter(i=>!isUp(i)).sort((a,b)=>(a.end?new Date(a.end):9e15)-(b.end?new Date(b.end):9e15));
     const up=list.filter(isUp).sort((a,b)=>new Date(a.start)-new Date(b.start));
@@ -180,6 +183,7 @@ fetch("data.json?"+Date.now()).then(r=>r.json()).then(data=>{
   };
   document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>{TAB=b.dataset.t;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));fillProd();render();}));
   ["fNat","fEntry","fArea","fProd"].forEach(id=>document.getElementById(id).addEventListener("change",render));
+  fQ.addEventListener("input",render);
   render();setInterval(render,60000);
 });
 </script>
